@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-HANDSON-14-CLOSURE</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>JAVA SCRIPT HANDSON-14 <br><span class="arr">Closure</span></h1>
+
+    <h2>1.</h2>
+    <pre>
+
+        "    function counter(){
+            var counter = 0;
+        
+            function IncreaseCounter() {
+                return counter += 1;
+            };
+        
+            return IncreaseCounter;
+        }
+        
+        var counter = counter();
+        alert(counter());
+        alert(counter());
+        alert(counter());
+        alert(counter());"
+    </pre>
+    <p>OUTPUT: alert window will popup 4 times</p>
+
+    <h2>2.</h2>
+    <pre>
+
+        "(function myfun() {
+            let count = 0;
+        if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+        }
+        console.log(count); // What is logged?
+        })();"
+    </pre>
+    <p>OUTPUT: 1 0</p>
+
+    <h2>3.</h2>
+    <pre>
+
+        "(function myfun() {
+            let count = 0;
+        if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+        }
+        console.log(count); // What is logged?
+        })();"
+    </pre>
+    <p>OUTPUT: 3 3 3</p>
+
+    <h2>4.Write a code to calculate area of a rectangle using inner function.
+         In this case outer function should accept parameter length and inner function should accept parameter breadth.</h2>
+    <pre>
+        function outerf(len){
+
+            function innerf(b){
+              let area = len * b;
+              console.log(area)
+            }
+            return innerf(5);
+        }
+        
+        outerf(10);
+    </pre>
+    <p>OUTPUT: 50, outer function outerf parameter is 10,inner function innerf parameter is 5 total is 50</p>
+
+    <h2>5.Take a variable in outer function and create an inner function to increase the counter every time it is called</h2>
+   <pre>
+    function outer(){
+        var count = 0;
+        function inner(){
+         return count+=1;
+        }
+        return inner();
+    }
+    var nesw  = outer()
+    console.log(nesw);
+    console.log(nesw);
+   </pre>
+   <p>OUTPUT: 1</p>
+
+   <h2>6.</h2>
+   <pre>
+    "Print Output
+
+        var a = 12;
+        (function () {
+        alert(a);
+        })();"
+   </pre>
+   <p>OUTPUT: alert with value 12</p>
+
+   <h2>7.</h2>
+   <pre>
+    "var a = 10;
+        var x = (function () {
+        var a = 12;
+        return function () {
+            alert(a);
+        };
+        })();
+        x();"
+   </pre>
+   <p>OUTPUT: alert with value 12</p>
+
+   <h2>8.</h2>
+   <pre>
+    "var globalVar = ""xyz"";
+
+        (function outerFunc(outerArg) {
+            var outerVar = 'a';
+            
+            (function innerFunc(innerArg) {
+            var innerVar = 'b';
+            
+            console.log(
+                ""outerArg = "" + outerArg + ""\n"" +
+                ""innerArg = "" + innerArg + ""\n"" +
+                ""outerVar = "" + outerVar + ""\n"" +
+                ""innerVar = "" + innerVar + ""\n"" +
+                ""globalVar = "" + globalVar);
+            
+            })(456);
+        })(123);"
+   </pre>
+   <p>OUTPUT: <br>
+    outerArg = 123 <br>
+    innerArg = 456 <br>
+    outerVar = a <br>
+    innerVar = b <br>
+    globalVar = xyz <br>
+</p>
+    <script src="./main.js"></script>
+</body>
+</html>
